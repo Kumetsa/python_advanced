@@ -40,7 +40,6 @@ if materials:
 if magic:
     print(f"Magic left: {', '.join(map(str, magic))}")
 
-
 for toy, value in toys_crafted.items():
     if value > 0:
         print(f"{toy}: {value}")
