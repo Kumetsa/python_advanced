@@ -13,9 +13,11 @@ while materials and magic:
 
     if current_mat == 0 or current_magic == 0:
         if current_mat == 0:
-            magic.appendleft(current_magic)
+            if current_magic != 0:
+                magic.appendleft(current_magic)
         if current_magic == 0:
-            materials.append(current_mat)
+            if current_mat != 0:
+                materials.append(current_mat)
         continue
 
     result = current_mat * current_magic
