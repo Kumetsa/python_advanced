@@ -36,7 +36,7 @@ else:
     print("No presents this Christmas!")
 
 if materials:
-    print(f"Materials left: {', '.join(map(str, reversed(materials)))}")
+    print(f"Materials left: {', '.join([str(x) for x in materials][::-1])}")
 if magic:
     print(f"Magic left: {', '.join(map(str, magic))}")
 
