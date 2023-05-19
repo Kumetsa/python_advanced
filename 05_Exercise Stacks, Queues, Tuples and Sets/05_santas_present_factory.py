@@ -7,8 +7,6 @@ toys_crafted = {"Bicycle": 0, "Doll": 0, "Teddy bear": 0, "Wooden train": 0}
 
 magic_value_for_toy = {150: "Doll", 250: "Wooden train", 300: "Teddy bear", 400: "Bicycle"}
 
-successful_task = False
-
 while materials and magic:
     current_mat = materials.pop()
     current_magic = magic.popleft()
