@@ -17,3 +17,14 @@ def even_odd_filter(**kwargs):
     return dict(sorted(kwargs.items(), key=lambda x: -len(x[1])))
 # сортираме по дължината на value (x[1]), в речник от kwargs
 #decending е с минус
+
+#Example 4
+def concatenate(*args, **kwargs):
+    text = ''.join(args)
+
+    for key, val in kwargs.items():
+        text = text.replace(key, val)
+
+    return text
+
+#съединява аргументите в стринг, итерира през речника по ключ и ако намеро с replace замества match-a с value-то
