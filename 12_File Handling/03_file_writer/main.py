@@ -6,8 +6,8 @@ file_path = os.path.join(path_to_root, file_name)
 
 
 try:
-    file = open(file_path, "w")
-    file.write('I just created my first file!')
+    with open(file_path, "w") as file: # with manager - automaticlly closing the file when we complete the block of code
+        file.write('I just created my first file!')
 except FileNotFoundError:
     print("File not found")
 
