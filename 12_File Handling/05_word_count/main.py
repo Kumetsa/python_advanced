@@ -33,5 +33,6 @@ for word in words:
         if word in text_line:
             word_count[word] += 1
 
-for key, value in sorted(word_count.items(), key=lambda x: -x[1]):
-    print(f"{key} - {value}")
+with open("output.txt", "w") as file:
+    for key, value in sorted(word_count.items(), key=lambda x: -x[1]):
+        file.write(f"{key} - {value}\n")
