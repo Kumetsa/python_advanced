@@ -1,6 +1,6 @@
 import os
 
-path_to_root = os.path.dirname(os.path.abspath(__file__))  # в скобите е абстрактния път до тук (файла), извън скобите
+path_to_root = os.path.dirname(os.path.abspath(__file__)) # дай ми името на директорията чрез знание къде се намирам аз
 # до директорията
 file_path = os.path.join(path_to_root, "text.txt")  # joinваме директорията с файла txt който е в текущата директория
 
