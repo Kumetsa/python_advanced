@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import openai
 import tkinter as tk
 
-openai.api_key = "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"
+openai.api_key = "PUT KEY HERE"
 
 
 def get_image_url():
