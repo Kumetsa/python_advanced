@@ -1,4 +1,7 @@
 #Example 1
+from datetime import datetime
+import os
+
 my_dict = {}
 sorted(my_dict.items(), key=lambda x: x[0], reverse=True)
 
@@ -28,3 +31,8 @@ def concatenate(*args, **kwargs):
     return text
 
 #съединява аргументите в стринг, итерира през речника по ключ и ако намеро с replace замества match-a с value-то
+
+#Example 5
+file_info = os.stat(file_path) #можем да си извадим статистики за файловете
+print(f"file size: {file_info.st_size} bytes") #размера на файла
+print(f"Last Modified: {datetime.fromtimestamp(int(file_info.st_mtime))}")
