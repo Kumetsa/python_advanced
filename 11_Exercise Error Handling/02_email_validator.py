@@ -17,7 +17,7 @@ class TooManyAtSymbolsError(Exception):
     pass
 
 
-class NameCannotBeOnlyNonAlphaNumbericalError(Exception):
+class NameCanBeOnlyAlphaNumbericalError(Exception):
     pass
 
 
@@ -41,7 +41,7 @@ while True:
         raise NameTooShortError("Name must be more than 4 characters")
 
     if not name.isalnum():
-        raise NameCannotBeOnlyNonAlphaNumbericalError("Name cannot consists only of non-alphanumeric characters.")
+        raise NameCanBeOnlyAlphaNumbericalError("Name must be only alphanumeric symbols.")
 
     if not match:
         raise InvalidDomainError("Domain must be one of the following: .com, .bg, .org,.net")
