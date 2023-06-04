@@ -27,4 +27,13 @@ try:
 except FileNotFoundError:
     print("Enter valid folder")
 
-print(extensions)
+result = []
+
+extensions = sorted(extensions.items(), key=lambda x: x[0])
+
+for extension, files in extensions:
+    result.append(f"{extension}")
+    [result.append(f"---{file}") for file in sorted(files)]
+
+with open("report.txt", "w") as report_file:
+    report_file.write("\n".join(result))
