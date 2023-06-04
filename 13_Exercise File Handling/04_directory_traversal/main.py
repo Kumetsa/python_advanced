@@ -17,11 +17,11 @@ def save_extensions(dir_name):
             extensions[extension].append(file_name)
 
         elif os.path.isdir(file):
-            save_extensions(file)   # if the object is folder it will call the func again while there is folders
+            save_extensions(file)   # If the object is folder it will call the func again while there is folders
 
 
 directory = input()
-extensions = {} # {.py: [example.py, exmple2.py],...}
+extensions = {} # {.py: [example.py, example2.py],...}
 try:
     save_extensions(directory)
 except FileNotFoundError:
@@ -29,7 +29,7 @@ except FileNotFoundError:
 
 result = []
 
-extensions = sorted(extensions.items(),key=lambda x: x[0])
+extensions = sorted(extensions.items(), key=lambda x: x[0])
 
 for extension, files in extensions:
     result.append(f"{extension}")
