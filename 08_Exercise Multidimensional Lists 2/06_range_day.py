@@ -27,7 +27,7 @@ def move_player(direction, steps):
     elif direction == "down":
         new_row, new_col = curr_row + steps, curr_col
 
-    if check_valid_index(new_row, new_col) and matrix[new_row][new_col] == ".":
+    if check_valid_index(new_row, new_col) and matrix[new_row][new_col] != "x":
         matrix[new_row][new_col] = "A"
         matrix[curr_row][curr_col] = "."
 
@@ -43,16 +43,16 @@ def shoot_target(direction):
         elif matrix[next_row][next_col] == ".":
             next_row += directions[direction][0]
             next_col += directions[direction][1]
-        else:
-            break
-
-    return None
+    #     else:
+    #         break
+    #
+    # return None
 
 
 SIZE = 5
 
 matrix = [[el for el in input().split()] for _ in range(SIZE)]
-count_of_targets = sum(row.count("x") for row in matrix)
+total_targets = sum(row.count("x") for row in matrix)
 
 
 n_commands = int(input())
@@ -80,11 +80,14 @@ for _ in range(n_commands):
         if target:
             targets_shot.append(target)
 
+    # print(*matrix, sep="\n")
+    # print("New Matrix")
 
-if count_of_targets == len(targets_shot):
-    print(f"Training completed! All {count_of_targets} targets hit.")
+if total_targets > len(targets_shot):
+    print(f"Training not completed! {total_targets - len(targets_shot)} targets left.")
 else:
-    print(f"Training not completed! {count_of_targets - len(targets_shot)} targets left.")
+    print(f"Training completed! All {total_targets} targets hit.")
+
 
 if targets_shot:
     for target in targets_shot:
