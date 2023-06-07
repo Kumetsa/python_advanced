@@ -36,3 +36,9 @@ def concatenate(*args, **kwargs):
 file_info = os.stat(file_path) #можем да си извадим статистики за файловете
 print(f"file size: {file_info.st_size} bytes") #размера на файла
 print(f"Last Modified: {datetime.fromtimestamp(int(file_info.st_mtime))}")
+
+
+# Example 6
+def move(direction, steps):  # създаваме фунцкия move, първи параметър посоката и втори стъпките int
+    r = my_position[0] + (directions[direction][0] * steps)  # намираме реда и колоната като умножаваме стойностите от
+    c = my_position[1] + (directions[direction][1] * steps)  # посоката по стъпките и събираме с текущите координати
