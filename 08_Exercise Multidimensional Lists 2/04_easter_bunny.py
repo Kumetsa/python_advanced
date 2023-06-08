@@ -32,7 +32,7 @@ def check_moves_result(matrix, bunny_pos):
                 x += dx
                 y += dy
 
-            if points >= max_points:
+            if points > max_points and current_positions:
                 max_points = points
                 if direction == (-1, 0):
                     best_direction = 'up'
@@ -49,7 +49,18 @@ def check_moves_result(matrix, bunny_pos):
 
 rows = int(input())
 
-matrix = [[int(el) if el.isdigit() else el for el in input().split()] for _ in range(rows)]
+matrix = []
+for row in range(rows):
+    col = []
+    for el in input().split():
+        if el != "B" and el != "X":
+            col.append(int(el))
+        else:
+            col.append(el)
+    matrix.append(col)
+
+    if "B" in matrix[row]:
+        bunny_position = (row, matrix[row].index("B"))
 
 bunny_position = None
 
