@@ -5,12 +5,11 @@ def check_valid_index(row, col):
 
 
 def player_position(matrix):
-    for i in range(len(matrix)):
-        for j in range(len(matrix[0])):
-            if matrix[i][j] == "A":
-                return i, j
+    for row in range(SIZE):
+        if "A" in matrix[row]:
+            return row, matrix[row].index("A")
 
-    return None
+    # return None
 
 
 def move_player(direction, steps):
