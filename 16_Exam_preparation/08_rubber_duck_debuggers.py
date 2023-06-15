@@ -18,7 +18,7 @@ while programmer_time and number_of_tasks:
 
     result = current_time * current_task
 
-    if result > 240: #TODO what if it is equal?
+    if result > 240:
         programmer_time.append(current_time)
         number_of_tasks.append(current_task - 2)
     elif 0 < result <= 60:
