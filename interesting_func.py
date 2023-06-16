@@ -42,3 +42,17 @@ print(f"Last Modified: {datetime.fromtimestamp(int(file_info.st_mtime))}")
 def move(direction, steps):  # създаваме фунцкия move, първи параметър посоката и втори стъпките int
     r = my_position[0] + (directions[direction][0] * steps)  # намираме реда и колоната като умножаваме стойностите от
     c = my_position[1] + (directions[direction][1] * steps)  # посоката по стъпките и събираме с текущите координати
+
+
+# Example 6 - 1 pos movement func
+
+def move(direction_, position_):
+    if direction_ == 'up':
+        position_[0] -= 1
+    elif direction_ == 'down':
+        position_[0] += 1
+    elif direction_ == 'left':
+        position_[1] -= 1
+    elif direction_ == 'right':
+        position_[1] += 1
+    return position_
