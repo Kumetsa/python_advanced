@@ -13,6 +13,7 @@ class Smartphone:
     def install(self, app: str, app_memory: int) -> str:
         if not self.memory >= app_memory:
             return f"Not enough memory to install {app}"
+
         if self.is_on:
             self.apps.append(app)
             self.memory -= app_memory
