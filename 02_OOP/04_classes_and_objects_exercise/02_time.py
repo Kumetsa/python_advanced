@@ -13,10 +13,10 @@ class Time:
         self.minutes = minutes
         self.seconds = seconds
 
-    def get_time(self):
+    def get_time(self) -> str:
         return "{:02d}:{:02d}:{:02d}".format(self.hours, self.minutes, self.seconds)
 
-    def next_second(self):
+    def next_second(self) -> str:
         new_seconds = self.seconds + 1
         new_minutes = self.minutes
         new_hours = self.hours
@@ -33,6 +33,7 @@ class Time:
                     new_hours = 0
 
         return Time(new_hours, new_minutes, new_seconds).get_time()
+
 
 time = Time(9, 30, 59)
 print(time.next_second())

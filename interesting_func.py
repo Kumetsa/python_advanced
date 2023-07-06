@@ -56,3 +56,12 @@ def move(direction_, position_):
     elif direction_ == 'right':
         position_[1] += 1
     return position_
+
+
+#Example 7
+def get_time(self):
+    return "{:02d}:{:02d}:{:02d}".format(self.hours, self.minutes, self.seconds)
+""""In this code, "{:02d}" is the format specifier for an integer with a minimum width of 2 digits,
+padded with leading zeros if necessary. The format method is then used to apply this formatting to the hours,
+minutes, and seconds values."""
+
