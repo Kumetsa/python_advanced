@@ -1,3 +1,3 @@
 class Person:
-    def sleeping(self):
-        return "sleeping"
+    def sleep(self):
+        return "sleeping..."
