@@ -6,38 +6,38 @@ class Person:
         self.name = name
         self.surname = surname
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.name} {self.surname}"
 
-    def __add__(self, other):
+    def __add__(self, other) -> str:
         return Person(self.name, other.surname)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name} {self.surname}"
 
 
 class Group:
-    def __init__(self, name: str, people: List[Person]):
+    def __init__(self, name: str, people: List[Person]) -> None:
         self.name = name
         self.people = people
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.people)
 
-    def __add__(self, other):
+    def __add__(self, other) -> object:
         new_name = f"{self.name} {other.name}"
         new_people = self.people + other.people
         return Group(new_name, new_people)
 
-    def __str__(self):
+    def __str__(self) -> str:
         members = ", ".join(str(person) for person in self.people)
         return f"Group {self.name} with members {members}"
 
-    def __getitem__(self, index):
+    def __getitem__(self, index) -> str:
         person = self.people[index]
         return f"Person {index}: {person.name} {person.surname}"
 
-    def __iter__(self):
+    def __iter__(self) -> str:
         for index, person in enumerate(self.people):
             yield f"Person {index}: {person.name} {person.surname}"
 

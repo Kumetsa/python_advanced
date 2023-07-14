@@ -119,7 +119,7 @@ class Tests(unittest.TestCase):
     def test_zoo_add_animal_no_space(self):
         z = Zoo("My Zoo", 1500, 0, 10)
         res = z.add_animal(Lion("Neo", "Male", 2), 1000)
-        self.assertEqual(res, "Not enough space for animal")
+        self.assertEqual(res, "Not enough space for animals")
         self.assertEqual(len(z.animals), 0)
         self.assertEqual(z._Zoo__budget, 1500)
 
