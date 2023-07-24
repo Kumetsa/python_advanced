@@ -98,3 +98,7 @@ class WorkerTest(unittest.TestCase):
         result = worker.get_info()
         expected_result = 'test2 has saved 1000 money.'
         self.assertEqual(expected_result, result)
+
+
+if __name__ == "__main__":
+    unittest.main()
