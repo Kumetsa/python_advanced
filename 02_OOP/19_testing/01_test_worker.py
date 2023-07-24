@@ -25,6 +25,9 @@ import unittest
 
 
 class WorkerTest(unittest.TestCase):
+    def tearDown(self) -> None:
+        print("Test completed.")
+
     def test_object_is_initialized_correctly(self):
         # Act
         worker = Worker("Test", 1000, 60)
