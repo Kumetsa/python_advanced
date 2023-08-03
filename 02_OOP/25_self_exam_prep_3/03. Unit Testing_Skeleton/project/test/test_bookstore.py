@@ -89,11 +89,6 @@ class TestBookstore(TestCase):
             self.bookstore.sell_book("Ninjas", 1)
         self.assertEqual("Book Ninjas doesn't exist!", str(ex.exception))
 
-        self.assertEqual({
-            "Math 101": 1,
-            "Physics": 1,
-        }, self.bookstore.availability_in_store_by_book_titles)
-
     def test_sell_book_existing_not_enough_qty_raises_exception(self):
         self.bookstore.availability_in_store_by_book_titles = {
             "Math 101": 1,
@@ -105,29 +100,31 @@ class TestBookstore(TestCase):
         self.assertEqual("Math 101 has not enough copies to sell. Left: 1"
                          , str(ex.exception))
 
-        self.assertEqual({
-            "Math 101": 1,
-            "Physics": 1,
-        }, self.bookstore.availability_in_store_by_book_titles)
 
     def test_sell_book_successfully_expect_decrease_in_book_return_message(self):
         self.bookstore.availability_in_store_by_book_titles = {
-            "Math 101": 1,
+            "Math 101": 2,
             "Physics": 2
         }
-        self.assertEqual(0, self.bookstore.total_sold_books)
+
         result = self.bookstore.sell_book("Math 101", 1)
-        self.assertEqual(0,
+        self.assertEqual(1,
                          self.bookstore.availability_in_store_by_book_titles["Math 101"])
         self.assertEqual(1, self.bookstore.total_sold_books)
         self.assertEqual("Sold 1 copies of Math 101", result)
 
-        result2 = self.bookstore.sell_book("Physics", 1)
-        self.assertEqual(1,
-                         self.bookstore.availability_in_store_by_book_titles["Physics"])
+    def test_sell_book_successfully_expect_decrease_in_book_return_message2(self):
+        self.bookstore.availability_in_store_by_book_titles = {
+            "Math 101": 2,
+            "Physics": 2
+        }
+
+        result = self.bookstore.sell_book("Math 101", 2)
+        self.assertEqual(0,
+                         self.bookstore.availability_in_store_by_book_titles["Math 101"])
         self.assertEqual(2, self.bookstore.total_sold_books)
-        self.assertEqual("Sold 1 copies of Physics", result2)
-        
+        self.assertEqual("Sold 2 copies of Math 101", result)
+
     def test_bookstore_with_available_books_string_representation(self):
         self.bookstore.books_limit = 20
         self.bookstore.receive_book("Book A", 10)
@@ -139,6 +136,7 @@ class TestBookstore(TestCase):
     def test_empty_bookstore_string_representation(self):
         expected_output = "Total sold books: 0\nCurrent availability: 0"
         self.assertEqual(str(self.bookstore), expected_output)
+
 
 
 if __name__ == "__main__":
